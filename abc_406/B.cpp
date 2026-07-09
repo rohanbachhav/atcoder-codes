@@ -1,0 +1,56 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define pb push_back
+#define nl "\n"
+
+using str = string;
+using ll = long long;
+using ld = long double;
+
+#ifndef ONLINE_JUDGE
+#include <Debug.h>
+#else
+#define debug(...) 4
+#endif
+
+int const MOD = 1e9 + 7;
+
+void solve() {
+
+   ll n, k;
+   cin >> n >> k;
+
+   str s(k, '9');
+   ll x = stoll(s);
+
+   vector<ll> a(n);
+   for (int i = 0; i < n; i++) {
+      cin >> a[i];
+   }
+
+   ll ans = 1;
+   for (int i = 0; i < n; i++) {
+      if (a[i] > x / ans) {
+         ans = 1;
+         continue;
+      }
+      ans *= a[i];
+   }
+   cout << ans << nl;
+
+}
+
+int main() {
+   ios::sync_with_stdio(0);
+   cin.tie(0);
+
+   int TESTCASES = 1;
+   // cin >> TESTCASES;
+
+   while (TESTCASES--) {
+      solve();
+   }
+   return 0;
+}
